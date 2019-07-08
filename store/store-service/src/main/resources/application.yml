@@ -1,0 +1,10 @@
+store:
+  stoloto:
+    - https://google.com
+    - https://ya.ru
+spring:
+  scalecube:
+    discovery:
+      port: 7000
+    transport:
+      port: 7001
