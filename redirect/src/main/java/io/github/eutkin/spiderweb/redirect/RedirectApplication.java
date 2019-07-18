@@ -4,10 +4,10 @@ import io.github.eutkin.spiderweb.store.RedirectStore;
 import io.github.spiderweb.destination.DestinationSelector;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.scalecube.beans.EnableScalecubeClients;
+import org.springframework.boot.scalecube.beans.EnableScalecube;
 
 @SpringBootApplication
-@EnableScalecubeClients({RedirectStore.class, DestinationSelector.class})
+@EnableScalecube(remoteServices = {RedirectStore.class, DestinationSelector.class})
 public class RedirectApplication {
 
   public static void main(String[] args) {

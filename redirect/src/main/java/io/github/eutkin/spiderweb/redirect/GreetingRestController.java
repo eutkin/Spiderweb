@@ -18,7 +18,7 @@ public class GreetingRestController {
     private final RedirectStore redirectStore;
 
     // external client with custom router
-    @SelectionStrategy(RandomServiceRouter.class)
+    @SelectionStrategy(routerType = RandomServiceRouter.class)
     private final DestinationSelector destinationSelector;
 
     // internal service
@@ -37,7 +37,7 @@ public class GreetingRestController {
         SelectContext selectContext = new SelectContext().setRandom(true);
         return redirectStore
                 .readDestinations(path)
-                .flatMap(destinations -> destinationSelector.select(selectContext, destinations))
+                .flatMap(destinations -> destinationSelector.select(destinations))
                 .map(Destination::getUri)
                 .map(URI::toString);
     }

@@ -15,7 +15,7 @@ public class DestinationProviderImpl implements DestinationProvider  {
 
   private final RedirectStore redirectStore;
 
-  @SelectionStrategy(RandomServiceRouter.class)
+  @SelectionStrategy(routerType = RandomServiceRouter.class)
   private final DestinationSelector destinationSelector;
 
   public DestinationProviderImpl(RedirectStore redirectStore,
@@ -29,7 +29,7 @@ public class DestinationProviderImpl implements DestinationProvider  {
     SelectContext selectContext = new SelectContext().setRandom(true);
     return redirectStore
         .readDestinations(path)
-        .flatMap(destinations -> destinationSelector.select(selectContext, destinations))
+        .flatMap(destinationSelector::select)
         .map(Destination::getUri);
   }
 }

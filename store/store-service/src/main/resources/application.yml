@@ -5,6 +5,5 @@ store:
 spring:
   scalecube:
     discovery:
-      port: 7000
-    transport:
-      port: 7001
+      transport:
+        port: 9000

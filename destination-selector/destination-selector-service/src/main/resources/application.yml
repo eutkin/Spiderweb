@@ -1,0 +1,5 @@
+spring:
+  scalecube:
+    discovery:
+      transport:
+        port: 9002

@@ -19,7 +19,8 @@ public class StoreServiceApplication {
         new SpringApplicationBuilder()
             .sources(StoreServiceApplication.class)
             .build(args)
-            .run();
+            .run()
+        ;
     }
 
     @Bean
